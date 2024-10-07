@@ -6,42 +6,94 @@
     <meta name="description" content="Travel Companion Super App - UX/UI Design Case Study">
     <title>Travel Companion Super App - Case Study</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* General Styling */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1e272e;
+            color: #ecf0f1;
         }
 
         header {
-            background-color: #2c3e50;
+            background-color: #ff4757;
             color: white;
-            padding: 20px;
+            padding: 60px 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         header h1 {
-            margin: 0;
+            font-size: 3rem;
+            z-index: 10;
+            position: relative;
         }
 
+        header::before, header::after {
+            content: "";
+            position: absolute;
+            width: 1000px;
+            height: 1000px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            z-index: 1;
+            animation: pulse 6s infinite;
+        }
+
+        header::before {
+            top: -500px;
+            left: -500px;
+        }
+
+        header::after {
+            bottom: -500px;
+            right: -500px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Content Styling */
         main {
-            max-width: 900px;
-            margin: 20px auto;
+            max-width: 1200px;
+            margin: 40px auto;
             padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #2f3640;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #2c3e50;
+            color: #ff6b81;
+            border-bottom: 2px solid #ff6b81;
             padding-bottom: 5px;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-transform: uppercase;
         }
 
         ul {
             padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
         }
 
         .image-container {
@@ -49,35 +101,116 @@
             margin: 20px 0;
         }
 
-        footer {
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-            background-color: #2c3e50;
-            color: white;
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         a {
-            color: #3498db;
+            color: #1abc9c;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: #16a085;
+        }
+
+        /* Button */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #1abc9c;
+            color: white;
+            border-radius: 50px;
+            font-size: 1rem;
+            margin-top: 20px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #16a085;
+        }
+
+        /* Shape Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff4757;
+            color: white;
+        }
+
+        /* Scroll to top */
+        #scrollToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            display: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        #scrollToTop:hover {
+            background-color: #16a085;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            main {
+                margin: 20px;
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
+<!-- Header Section -->
 <header>
-    <h1>Travel Companion Super App - UX/UI Design Case Study</h1>
+    <h1>Travel Companion Super App</h1>
 </header>
 
+<!-- Main Content -->
 <main>
     <section>
         <h2>Project Overview</h2>
-        <p>This project aims to design a <strong>Travel Companion Super App</strong> that supports travelers by providing essential services, such as booking hotels, renting cars, finding activities, and much more. The app is particularly designed to assist users traveling during conflict or disaster by providing critical information like restricted areas, health hazards, and local laws.</p>
-        <p>Developed for <strong>SOEN 357 - UX/UI Design Course</strong> as a mini-project for Fall 2024, this case study showcases the UX/UI design process, research findings, and final visual prototypes.</p>
+        <p>This project aims to design a <strong>Travel Companion Super App</strong> that supports travelers by providing essential services like booking hotels, renting cars, finding activities, and much more. This app is particularly designed to assist users during conflict or disaster, providing critical information like restricted areas, health hazards, and local laws.</p>
+        <p>Developed for <strong>SOEN 357 - UX/UI Design Course</strong>, Fall 2024, this case study showcases the UX/UI design process, research findings, and final visual prototypes.</p>
     </section>
 
     <section>
@@ -94,19 +227,19 @@
 
     <section id="user-problem">
         <h2>User Problem</h2>
-        <p>When traveling during global conflicts or natural disasters, travelers often face challenges such as understanding local restrictions, visa requirements, and health hazards. This app not only fulfills standard travel needs, like booking tickets and accommodations, but also provides critical updates about safety zones, curfews, and other essential travel information.</p>
+        <p>When traveling during conflicts or natural disasters, travelers face challenges like understanding local restrictions, visa requirements, and health hazards. This app provides standard travel needs and critical updates on safety zones, curfews, and other essential information.</p>
     </section>
 
     <section id="research-analysis">
         <h2>Research & Analysis</h2>
         <h3>Competitor Analysis</h3>
-        <p>I analyzed various travel apps and super apps to understand their strengths and limitations. This helped to identify opportunities for improvement.</p>
+        <p>I analyzed various travel apps and super apps to understand their strengths and limitations, identifying opportunities for improvement.</p>
 
         <h3>User Personas</h3>
-        <p>I created several user personas to reflect the needs of diverse travelers in different situations. These personas helped guide design decisions.</p>
+        <p>Several user personas were created to reflect the needs of diverse travelers in different situations. These guided design decisions.</p>
 
         <h3>User Flows</h3>
-        <p>User journeys were mapped out to ensure a smooth experience when accessing different services, such as booking flights, renting cars, or receiving safety alerts.</p>
+        <p>User journeys were mapped to ensure a smooth experience when accessing different services like booking flights, renting cars, or receiving safety alerts.</p>
     </section>
 
     <section id="design-process">
@@ -114,26 +247,19 @@
         <h3>Sketches and Wireframes</h3>
         <p>Initial sketches and low-fidelity wireframes were created to explore different layout options and navigation structures.</p>
         <div class="image-container">
-            <img src="path-to-your-figma-sketches" alt="Sketches and Wireframes" style="max-width:100%; height:auto;">
+            <img src="path-to-your-figma-sketches" alt="Sketches and Wireframes">
         </div>
 
         <h3>Mockups</h3>
-        <p>High-fidelity mockups created in <strong>Figma</strong> showcase the final look and feel of the app, demonstrating interface design, color choices, typography, and interactions.</p>
+        <p>High-fidelity mockups created in <strong>Figma</strong> showcase the final look and feel of the app.</p>
         <div class="image-container">
-            <img src="path-to-your-figma-mockups" alt="High-fidelity mockups" style="max-width:100%; height:auto;">
+            <img src="path-to-your-figma-mockups" alt="High-fidelity mockups">
         </div>
-
-        <h3>Style Guide</h3>
-        <ul>
-            <li><strong>Color Palette:</strong> A calming and neutral color scheme reduces user anxiety in high-stress situations.</li>
-            <li><strong>Typography:</strong> Readable fonts with attention to accessibility standards.</li>
-            <li><strong>Icons & UI Elements:</strong> Intuitive icons for easy navigation.</li>
-        </ul>
     </section>
 
     <section id="prototypes">
         <h2>Prototypes</h2>
-        <p>Interactive prototypes were created to simulate user interactions and validate the app's functionality. Check them out below:</p>
+        <p>Interactive prototypes created to simulate user interactions and validate the app's functionality.</p>
         <ul>
             <li><a href="https://www.figma.com/file/your-mobile-version" target="_blank">Mobile Version</a></li>
             <li><a href="https://www.figma.com/file/your-desktop-version" target="_blank">Desktop Version</a></li>
@@ -142,22 +268,41 @@
 
     <section id="conclusion">
         <h2>Conclusion</h2>
-        <p>This project highlights the importance of creating an app that is not only functional but also mindful of the unique challenges travelers face during difficult times. The design process has been driven by user needs and thorough research, ensuring a practical and easy-to-use app.</p>
+        <p>This project highlights the importance of creating an app that is functional and mindful of the unique challenges travelers face during difficult times.</p>
     </section>
 
     <section id="future-work">
         <h2>Future Work</h2>
         <ul>
-            <li><strong>User Testing:</strong> Further iterations will involve testing the app with real users to gather feedback.</li>
-            <li><strong>Feature Expansion:</strong> Future versions will include more integrated services like a built-in translation tool and real-time alerts.</li>
+            <li><strong>User Testing:</strong> Future iterations will involve testing the app with real users.</li>
+            <li><strong>Feature Expansion:</strong> Future versions will include more integrated services like a translation tool and real-time alerts.</li>
         </ul>
     </section>
 </main>
 
+<!-- Scroll to Top Button -->
+<button id="scrollToTop" onclick="scrollToTop()">↑</button>
+
+<!-- Footer -->
 <footer>
     <p>&copy; 2024 Travel Companion Super App - Designed for SOEN 357</p>
 </footer>
 
+<script>
+    // Scroll to top functionality
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onscroll = function() {
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollToTopBtn.style.display = 'block';
+        } else {
+            scrollToTopBtn.style.display = 'none';
+        }
+    };
+</script>
+
 </body>
 </html>
-
